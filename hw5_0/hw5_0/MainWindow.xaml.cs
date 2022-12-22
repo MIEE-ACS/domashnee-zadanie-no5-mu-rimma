@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,20 +27,12 @@ namespace hw5_0
 получения состояния объекта. 
 Написать программу, демонстрирующую все разработанные элементы класса.
     */
-    class Quadratic
-    {
-        int coef1;
-        int coef2;
-        int coef3;
-        double var;
-
-        public Quadratic(int a, int b, int c, double x)
-        {
-            coef1 = a;
-            coef2 = b;
-            coef3 = c;
-            var = x;
-        }
+  public class Quadratic
+  {
+        public int coef1;
+        public int coef2;
+        public int coef3;
+        double discr;
 
         public void SetCoef1(int a)
         {
@@ -56,43 +49,78 @@ namespace hw5_0
             coef3 = c;
         }
 
-        public void SetVar(double x)
+        public void SetDiscr()
         {
-            var = x;
+            discr = coef2 ^ 2 - 4 * coef1 * coef3;
         }
-
-        public int GetCoef1()
+        public double Discriminant(int a, int b, int c)
         {
-            return coef1;
+            SetCoef1(a);
+            SetCoef2(b);
+            SetCoef3(c);
+            SetDiscr();
+            return discr;
         }
-
-        public int GetCoef2()
+        public double Solution1(int a, int b, int c)
         {
-            return coef2;
+            double d = Math.Sqrt(Discriminant(a, b, c));
+            double x1 = (-b + d) / 2 * a;
+            return x1;
         }
-
-        public int GetCoef3()
+        public double Solution2(int a, int b, int c)
         {
-            return coef3;
+            double d = Math.Sqrt(Discriminant(a, b, c));
+            double x2 = (-b - d) / 2 * a;
+            return x2;
         }
-
-        public double GetVar()
+        public override string ToString()
         {
-            return var;
+            return $"{coef1}*x^2 + {coef2}*x + {coef3} = 0";
         }
-
-        public double solution(int a, int b, int c, double x)
+        public string DiscToString()
         {
-            double d = 0;
-            d = b ^ 2 - 4 * a * c;
-            return x;
+            return $"D = {coef2}^2 - 4*{coef1}*{coef3}";
         }
-    }
+  }
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnAct_Click(object sender, RoutedEventArgs e)
+        {
+            int a = int.Parse(txtbCoef1.Text);
+            int b = int.Parse(txtbCoef2.Text);
+            int c = int.Parse(txtbCoef3.Text);
+            Quadratic quadratic = new Quadratic { coef1 = a, coef2 = b, coef3 = c };
+            
+            lblEq.Content = quadratic.ToString();
+            lblDiscr.Content = quadratic.DiscToString();
+
+            try
+            {
+                double x1 = quadratic.Solution1(a, b, c);
+                double x2 = quadratic.Solution2(a, b, c);
+                if (x1 == x2)
+                {
+                    txtbAnswer.Text = $"Уравнение имеет один корень x = {x1}";
+                }
+                txtbAnswer.Text = $"x1 = {x1};      x2 = {x2}";
+            }
+            catch (DivideByZeroException)
+            {
+                txtbAnswer.Text = "Коэффицент 1 не может быть равен 0";
+            }
+            catch (FormatException)
+            {
+                txtbAnswer.Text = "Некорректный ввод";
+            }
+            catch (ArithmeticException)
+            {
+                txtbAnswer.Text = "Уравнение не имеет корней";
+            }
         }
     }
 }

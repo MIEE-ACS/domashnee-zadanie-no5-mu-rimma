@@ -14,8 +14,10 @@
         <Label x:Name="lblCoef3" Content="Коэффицент 3" HorizontalAlignment="Left" Height="27" Margin="281,60,0,0" VerticalAlignment="Top" Width="90"/>
         <TextBox x:Name="txtbCoef3" HorizontalAlignment="Left" Height="29" Margin="281,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90"/>
         <Label x:Name="lblTxt" Content="Задайте коэффиценты квадратичного уравнения" HorizontalAlignment="Left" Height="33" Margin="23,22,0,0" VerticalAlignment="Top" Width="348"/>
-        <TextBox x:Name="txtbEq" HorizontalAlignment="Left" Height="36" Margin="23,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" IsReadOnlyCaretVisible="True"/>
-        <Button x:Name="btnAct" HorizontalAlignment="Left" Height="29" Margin="23,176,0,0" VerticalAlignment="Top" Width="90" Content="Решить"/>
+        <TextBox x:Name="txtbAnswer" HorizontalAlignment="Left" Height="36" Margin="23,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" IsReadOnlyCaretVisible="True"/>
+        <Button x:Name="btnAct" HorizontalAlignment="Left" Height="29" Margin="23,253,0,0" VerticalAlignment="Top" Width="90" Content="Решить" Click="btnAct_Click"/>
+        <Label x:Name="lblEq" HorizontalAlignment="Left" Height="32" Margin="23,131,0,0" VerticalAlignment="Top" Width="348" Content="a*x^2 + b*x + c = 0"/>
+        <Label x:Name="lblDiscr" HorizontalAlignment="Left" Height="32" Margin="23,173,0,0" VerticalAlignment="Top" Width="348" Content="D = b^2 - 4*a*c"/>
 
     </Grid>
 </Window>
