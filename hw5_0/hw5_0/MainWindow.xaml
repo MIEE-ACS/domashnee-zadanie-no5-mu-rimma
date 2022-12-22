@@ -1,0 +1,23 @@
+﻿<Window x:Class="hw5_0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:hw5_0"
+        mc:Ignorable="d"
+        Title="ДЗ-5 Муфазалова Римма УТС-22" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblCoef1" Content="Коэффицент 1" HorizontalAlignment="Left" Height="27" Margin="23,60,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox x:Name="txtbCoef1" HorizontalAlignment="Left" Height="29" Margin="23,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90"/>
+        <Label x:Name="lblCoef2" Content="Коэффицент 2" HorizontalAlignment="Left" Height="27" Margin="149,60,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox x:Name="txtbCoef2" HorizontalAlignment="Left" Height="29" Margin="149,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90"/>
+        <Label x:Name="lblCoef3" Content="Коэффицент 3" HorizontalAlignment="Left" Height="27" Margin="281,60,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox x:Name="txtbCoef3" HorizontalAlignment="Left" Height="29" Margin="281,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90"/>
+        <Label x:Name="lblTxt" Content="Задайте коэффиценты квадратичного уравнения" HorizontalAlignment="Left" Height="33" Margin="23,22,0,0" VerticalAlignment="Top" Width="348"/>
+        <TextBox x:Name="txtbAnswer" HorizontalAlignment="Left" Height="36" Margin="23,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" IsReadOnlyCaretVisible="True"/>
+        <Button x:Name="btnAct" HorizontalAlignment="Left" Height="29" Margin="23,253,0,0" VerticalAlignment="Top" Width="90" Content="Решить" Click="btnAct_Click"/>
+        <Label x:Name="lblEq" HorizontalAlignment="Left" Height="32" Margin="23,131,0,0" VerticalAlignment="Top" Width="348" Content="a*x^2 + b*x + c = 0"/>
+        <Label x:Name="lblDiscr" HorizontalAlignment="Left" Height="32" Margin="23,173,0,0" VerticalAlignment="Top" Width="348" Content="D = b^2 - 4*a*c"/>
+
+    </Grid>
+</Window>
